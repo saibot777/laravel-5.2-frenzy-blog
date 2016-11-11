@@ -45,6 +45,11 @@ Route::group(['middleware' => ['web']], function () {
             'as' => 'admin.index'
         ]);
 
+        Route::get('/blog/posts', [
+            'uses' => 'PostController@getPostIndex',
+            'as' => 'admin.blog.index'
+        ]);
+
         Route::get('/blog/posts/create', [
             'uses' => 'PostController@getCreatePost',
             'as'   => 'admin.blog.create_post'
