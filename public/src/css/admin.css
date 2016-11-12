@@ -214,4 +214,10 @@ li.category-edit input {
     width: 300px;
     margin:32px auto;
 }
+#ad-head li.active {
+    background: #fff;
+}
+#ad-head .active a {
+    color: #0863d3;
+}
 
