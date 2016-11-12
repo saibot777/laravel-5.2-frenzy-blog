@@ -70,6 +70,11 @@ Route::group(['middleware' => ['web']], function () {
             'as'   => 'admin.blog.post.create'
         ]);
 
+        Route::post('/blog/category/create', [
+           'uses' => 'CategoryController@postCreateCategory',
+            'as' => 'admin.blog.category.create'
+        ]);
+
         Route::get('/blog/post/{post_id}/edit}', [
            'uses' => 'PostController@getUpdatePost',
             'as' => 'admin.blog.post.edit'
@@ -80,9 +85,19 @@ Route::group(['middleware' => ['web']], function () {
             'as' => 'admin.blog.post.update'
         ]);
 
+        Route::post('/blog/categories/update', [
+            'uses' => 'CategoryController@postUpdateCategory',
+            'as' => 'admin.blog.category.update'
+        ]);
+
         Route::get('/blog/post/{post_id}/delete', [
            'uses' => 'PostController@getDeletePost',
             'as' => 'admin.blog.post.delete'
+        ]);
+
+        Route::get('/blog/category/{category_id}/delete', [
+            'uses' => 'CategoryController@getDeleteCategory',
+            'as' => 'admin.blog.category.delete'
         ]);
     });
 });
