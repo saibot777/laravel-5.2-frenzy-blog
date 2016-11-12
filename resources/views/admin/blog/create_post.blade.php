@@ -23,7 +23,9 @@
                     <div class="input-group">
                         <label for="category_select">Add Categories</label>
                         <select name="category_select" id="category_select">
-                            <option value="Dummy Category ID">Dummy Category</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
                         </select>
                         <button type="button" class="btn">Add Category</button>
                         <div class="added-categories">
