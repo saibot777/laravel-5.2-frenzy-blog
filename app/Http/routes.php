@@ -22,7 +22,7 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'blog.index'
     ]);
 
-    Route::get('/blog', [
+    Route::get('/blog/{post_id}&{end}', [
         'uses' => 'PostController@getSinglePost',
         'as' => 'blog.single'
     ]);
@@ -50,6 +50,11 @@ Route::group(['middleware' => ['web']], function () {
             'as' => 'admin.blog.index'
         ]);
 
+        Route::get('/blog/post/{post_id}&{end}', [
+            'uses' => 'PostController@getSinglePost',
+            'as' => 'admin.blog.post'
+        ]);
+
         Route::get('/blog/posts/create', [
             'uses' => 'PostController@getCreatePost',
             'as'   => 'admin.blog.create_post'
@@ -58,6 +63,21 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/blog/post/create', [
             'uses' => 'PostController@postCreatePost',
             'as'   => 'admin.blog.post.create'
+        ]);
+
+        Route::get('/blog/post/{post_id}/edit}', [
+           'uses' => 'PostController@getUpdatePost',
+            'as' => 'admin.blog.post.edit'
+        ]);
+
+        Route::post('/blog/post/update', [
+           'uses' => 'PostController@postUpdatePost',
+            'as' => 'admin.blog.post.update'
+        ]);
+
+        Route::get('/blog/post/{post_id}/delete', [
+           'uses' => 'PostController@getDeletePost',
+            'as' => 'admin.blog.post.delete'
         ]);
     });
 });
