@@ -18,14 +18,14 @@
             <a href="{{ route('blog.single', ['post_id' => $post->id, 'end' => 'frontend']) }}">Read More</a>
         </article>
     @endforeach
-    @if($posts->lastPage() > 1)
-        <section class="pagination">
-            @if($posts->currentPage() !== 1)
-                <a href="{{$posts->previousPageUrl()}}"><i class="fa fa-caret-left"></i></a>
-            @endif
-            @if($posts->previousPage() !== $posts->lastPage())
-               <a href="{{$posts->nextPageUrl()}}"><i class="fa fa-caret-right"></i></a>
-            @endif
-        </section>
-    @endif
+    {{--@if($posts->lastPage() > 1)--}}
+        {{--<section class="pagination">--}}
+            {{--@if($posts->currentPage() !== 1)--}}
+                {{--<a href="{{$posts->previousPageUrl()}}"><i class="fa fa-caret-left"></i></a>--}}
+            {{--@endif--}}
+            {{--@if($posts->previousPage() !== $posts->lastPage())--}}
+               {{--<a href="{{$posts->nextPageUrl()}}"><i class="fa fa-caret-right"></i></a>--}}
+            {{--@endif--}}
+        {{--</section>--}}
+    {{--@endif--}}
 @endsection
