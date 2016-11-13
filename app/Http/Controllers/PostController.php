@@ -9,7 +9,7 @@ use App\Category;
 class PostController extends Controller
 {
     public function getBlogIndex() {
-        $posts = Post::paginate(5);
+        $posts = Post::paginate(30);
         foreach ($posts as $post) {
             $post->body = $this->shortenText($post->body, 20);
         }
@@ -17,7 +17,7 @@ class PostController extends Controller
     }
 
     public function getPostIndex() {
-        $posts = Post::paginate(5);
+        $posts = Post::paginate(30);
         return view('admin.blog.index', ['posts' => $posts]);
     }
 
